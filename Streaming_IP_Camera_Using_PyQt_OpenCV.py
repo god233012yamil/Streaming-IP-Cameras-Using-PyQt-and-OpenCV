@@ -72,9 +72,9 @@ class MainWindow(QMainWindow):
         super(MainWindow, self).__init__()
 
         # rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0
-        self.url_1 = "rtsp://admin:08God@2330@10.0.0.97:1025/cam/realmonitor?channel=1&subtype=0"
-        self.url_2 = "rtsp://admin:08God@2330@10.0.0.85:1027/cam/realmonitor?channel=1&subtype=0"
-        self.url_3 = "rtsp://admin:08God@2330@10.0.0.210:1026/cam/realmonitor?channel=1&subtype=0"
+        self.url_1 = "rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0"
+        self.url_2 = "rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0"
+        self.url_3 = "rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0"
 
         # Dictionary to keep the state of a camera. The camera state will be: Normal or Maximized.
         self.list_of_cameras_state = {}
