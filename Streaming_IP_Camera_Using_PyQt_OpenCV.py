@@ -75,6 +75,7 @@ class MainWindow(QMainWindow):
         self.url_1 = "rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0"
         self.url_2 = "rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0"
         self.url_3 = "rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0"
+        self.url_4 = "rtsp://<Username>:<Password>@<IP Address>:<Port>/cam/realmonitor?channel=1&subtype=0"
 
         # Dictionary to keep the state of a camera. The camera state will be: Normal or Maximized.
         self.list_of_cameras_state = {}
@@ -151,7 +152,7 @@ class MainWindow(QMainWindow):
         self.CaptureIpCameraFramesWorker_3.ImageUpdated.connect(lambda image: self.ShowCamera3(image))
 
         # Create an instance of CaptureIpCameraFramesWorker.
-        self.CaptureIpCameraFramesWorker_4 = CaptureIpCameraFramesWorker(self.url_1)
+        self.CaptureIpCameraFramesWorker_4 = CaptureIpCameraFramesWorker(self.url_4)
         self.CaptureIpCameraFramesWorker_4.ImageUpdated.connect(lambda image: self.ShowCamera4(image))
 
         # Start the thread getIpCameraFrameWorker_1.
