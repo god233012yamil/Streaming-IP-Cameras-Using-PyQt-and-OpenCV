@@ -34,17 +34,19 @@ class CaptureIpCameraFramesWorker(QThread):
                 if not self.__thread_pause:
                     # Grabs, decodes and returns the next video frame.
                     ret, frame = cap.read()
-                    # Get the frame height, width and channels.
-                    height, width, channels = frame.shape
-                    # Calculate the number of bytes per line.
-                    bytes_per_line = width * channels
                     # If frame is read correctly.
                     if ret:
+                        # Get the frame height, width and channels.
+                        height, width, channels = frame.shape
+                        # Calculate the number of bytes per line.
+                        bytes_per_line = width * channels
                         # Convert image from BGR (cv2 default color format) to RGB (Qt default color format).
                         cv_rgb_image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                         # Convert the image to Qt format.
                         qt_rgb_image = QImage(cv_rgb_image.data, width, height, bytes_per_line, QImage.Format_RGB888)
                         # Scale the image.
+                        # NOTE: consider removing the flag Qt.KeepAspectRatio as it will crash Python on older Windows machines
+                        # If this is the case, call instead: qt_rgb_image.scaled(1280, 720) 
                         qt_rgb_image_scaled = qt_rgb_image.scaled(1280, 720, Qt.KeepAspectRatio)  # 720p
                         # qt_rgb_image_scaled = qt_rgb_image.scaled(1920, 1080, Qt.KeepAspectRatio)
                         # Emit this signal to notify that a new image or frame is available.
