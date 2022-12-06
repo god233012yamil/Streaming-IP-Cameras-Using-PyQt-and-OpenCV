@@ -153,7 +153,7 @@ class MainWindow(QMainWindow):
         self.CaptureIpCameraFramesWorker_3.ImageUpdated.connect(lambda image: self.ShowCamera3(image))
 
         # Create an instance of CaptureIpCameraFramesWorker.
-        self.CaptureIpCameraFramesWorker_4 = CaptureIpCameraFramesWorker(self.url_1)
+        self.CaptureIpCameraFramesWorker_4 = CaptureIpCameraFramesWorker(self.url_4)
         self.CaptureIpCameraFramesWorker_4.ImageUpdated.connect(lambda image: self.ShowCamera4(image))
 
         # Start the thread getIpCameraFrameWorker_1.
